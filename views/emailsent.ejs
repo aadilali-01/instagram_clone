@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>email sent</title>
+    <link rel="shortcut icon" href="/images/uploads/favicon-32x32.png" type="image/x-icon">
+    <link rel="stylesheet" href="/stylesheets/emailsent.css">
+</head>
+<body>
+    <div id="main">
+        <div id="nav">
+            <img src="/images/uploads/instalogo.png" alt="">
+            <a href="/">Login Into Another Account</a>
+        </div>
+        <div id="center">
+            <h4>Email Sent</h4>
+            <p>We sent an email to <b><%= user.email %></b>  with a link to get back into your account.
+            </p>
+            <a href="/forgot">OK</a>
+        </div>
+    </div>
+</body>
+</html>

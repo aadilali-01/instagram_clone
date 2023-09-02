@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/images/uploads/favicon-32x32.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Reset Password</title><link rel="stylesheet" href="/stylesheets/forgot.css">
+</head>
+<body>
+    <main>
+        <div class="page">
+            <div class="header">
+              <img height="70px" src="/images/uploads/instalogo.png" alt="">
+              <p>Create A Strong Password</p>
+              <!-- <small>Enter your new password and we'll update that.</small> -->
+              
+            </div>
+            <div style="margin-top: 20px;" class="container">
+              <form id="resetpassword" method="post">
+                <input data-id="<%= id %>" id="myInput" name="password" type="password" placeholder="Enter new password">
+                <div style="display: flex; align-items: center; gap: 5px; margin-bottom: 10px;" id="show">
+                  <input style="background-color: black;" type="checkbox" onclick="myFunction()">
+                  <div style="font-size: 13px; margin-top: -5px;" id="showpassword">Show Password</div>
+                </div>
+                <button style="outline: none;" data-toggle="modal" data-target="#exampleModalCenter" id="submit">Reset password</button>
+              </form>
+              
+              
+            </div>
+        </div>
+        <div style="height: 50px;" class="option">
+           <p>Want to create ? <a href="/signup">New account</a></p>
+        </div>
+        <div class="otherapps">
+          <p>Get the app.</p>
+          <a href="https://play.google.com/store/apps/details?id=com.instagram.android"><img src="https://static.cdninstagram.com/rsrc.php/v3/yz/r/c5Rp7Ym-Klz.png" alt=""></a>
+          <a href="ms-windows-store://pdp/?productid=9nblggh5l9xt&referrer=appbadge&source=www.instagram.com&mode=mini&pos=0%2C0%2C1920%2C1008"><img src="https://static.cdninstagram.com/rsrc.php/v3/yu/r/EHY6QnZYdNX.png" alt=""></a>
+        </div>
+        <div style="margin-top: 10px;" class="footer">
+          <ul>
+            <li><a href="">ABOUT</a></li>
+            <li><a href="">HELP</a></li>
+            <li><a href="">PRESS</a></li>
+            <li><a href="">API</a></li>
+            <li><a href="">JOBS</a></li>
+            <li><a href="">PRIVACY</a></li>
+            <li><a href="">TEMS</a></li>
+            <li><a href="">LOCATIONS</a></li>
+            <li><a href="">TOP ACCOUNTS</a></li>
+            <li><a href="">HASHTAGS</a></li>
+            <li><a href="">LANGUAGE</a></li>
+          </ul>
+          <p style="margin-top: -10px;">© 2020 PICTUREGRAM</p>
+        </div>
+        <!-- Button trigger modal -->
+        <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+          Launch demo modal
+        </button> -->
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div style="background-color: #262626;" class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Congratulations!</h5>
+        <button style="color: #fff; opacity: 1; font-weight: 200; outline: none;" type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Your password has been changed. Now you can login with your new password.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button onclick="window.location.href = '/'" type="button" data-toggle="modal" data-target="#exampleModalCenter" class="btn btn-primary">Login</button>
+      </div>
+    </div>
+  </div>
+</div>
+</main>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+      <script>
+
+        function myFunction() {
+          var x = document.getElementById("myInput");
+          if (x.type === "password") {
+            x.type = "text";
+          } else {
+            x.type = "password";
+          }
+        }
+
+        document.querySelector("#submit").addEventListener("click", function(){
+          let userid = document.querySelector("#myInput").getAttribute("data-id")
+          console.log(userid);
+          $("#resetpassword").submit(function(event){
+            event.preventDefault();
+          })
+          let newPassword = $("#myInput").val();
+          $.ajax({
+            url: "/resetpassword",
+            type: "POST",
+            data: {userid: userid,newPassword: newPassword},
+            
+          })
+        })
+      </script>
+</body>
+</html>

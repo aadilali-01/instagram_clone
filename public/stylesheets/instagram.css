@@ -1,0 +1,620 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: #fff;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+#main {
+  position: relative;
+  display: flex;
+}
+
+#left {
+  position: relative;
+  width: 20vw;
+  height: 100vh;
+  background-color: black;
+  border-right: 1px solid #ffffff52;
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
+#left > svg {
+  margin-top: 35px;
+  margin-bottom: 10px;
+}
+
+#left #container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#left a {
+  text-decoration: none;
+  color: #fff;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+#left .icons {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 10px 10px;
+  border-radius: 10px;
+}
+
+#options{
+  position: absolute;
+  bottom: 10%;
+  width: 23vw;
+  /* height: 20vh; */
+  background-color: #262626;
+  border-radius: 20px;
+  display: none;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 10px 15px;
+  overflow: hidden;
+}
+
+#options button{
+  background-color: transparent;
+  width: 100%;
+  outline: none;
+  border: none;
+  padding: 10px 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.2vw;
+  cursor: pointer;
+  border-radius: 20px;
+}
+
+#options button:hover{
+  background-color: #1a1a1a;
+}
+
+
+#left .icons:hover {
+  background-color: #1a1a1a;
+}
+
+#left .icons h4 {
+  font-weight: 400;
+}
+
+#left .icons #image {
+  width: 2vw;
+  height: 2vw;
+  border-radius: 50%;
+  overflow: hidden;
+  background-image: url(https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png);
+  background-size: cover;
+  background-position: center;
+}
+
+.icons #image img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: cover;
+}
+
+#search #searching{
+  width: 30vw;
+  height: 100vh;
+  background-color: black;
+  border-right: 1px solid #ffffff6e;
+  border-radius: 10px;
+  position: absolute;
+  top: 0;
+  left: -100vw;
+  z-index: 9;
+  padding: 0 20px;
+  /* transition: all ease .5s; */
+}
+
+#searching h2{
+  margin-top: 20px;
+  font-weight: 500;
+}
+
+#searching input{
+  width: 100%;
+  padding: 12px;
+  color: #fff;
+  background-color: #262626;
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  margin-top: 30px;
+  font-size: 1.2vw;
+}
+
+#searchResults{
+  /* background-color: red; */
+  padding: 10px;
+}
+
+#searchResults hr{
+  opacity: 0;
+}
+
+#searchResults a{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+#searchResults a #searchphoto{
+  width: 4vw;
+  height: 4vw;
+  border-radius: 50%;
+  overflow: hidden;
+  background-image: url(https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png);
+  background-size: cover;
+  background-position: center;
+}
+
+#searchphoto img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+#searchResults a #resultbox{
+  padding: 10px 12px;
+  /* background-color: red; */
+}
+
+#right {
+  width: 60vw;
+  height: 100vh;
+  background-color: black;
+  overflow-y: auto;
+}
+
+#right::-webkit-scrollbar {
+  display: none;
+}
+
+#right #stories {
+  height: 25vh;
+  white-space: nowrap;
+  overflow-y: hidden;
+  overflow-x: auto;
+  padding: 25px 0px;
+}
+
+#right #stories::-webkit-scrollbar {
+  display: none;
+}
+
+#ownstory{
+  position: relative;
+  margin-left: 10px;
+}
+
+#ownstory #ownphoto{
+  width: 5.5vw;
+  height: 5.5vw;
+  background-image: url(https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png);
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
+  overflow: hidden;
+
+}
+
+#ownphoto img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+#stories{
+  display: flex;
+}
+
+#stories #story {
+  display: inline-block;
+  width: fit-content;
+  margin-left: 15px;
+  cursor: pointer;
+  position: relative;
+}
+
+#ownstory i {
+  position: absolute;
+  top: 55%;
+  right: 5%;
+  font-size: 1.8vw;
+}
+
+#stories #story #photo {
+  background: radial-gradient(
+    circle at 33% 100%,
+    #fed373 4%,
+    #f15245 30%,
+    #d92e7f 62%,
+    #9b36b7 85%,
+    #515ecf
+  );
+  width: 6vw;
+  height: 6vw;
+  background-color: #fff;
+  border-radius: 50%;
+  overflow: hidden;
+  padding: 2px;
+  /* background-image: url(https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png);
+  background-size: cover;
+  background-position: center; */
+}
+
+#story #photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 50%;
+  border: 2px solid #000;
+}
+
+#ownstory h5  {
+  text-align: center;
+  margin-top: 5px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  color: #ffffff;
+  font-weight: 500;
+}
+
+#story h5{
+  text-align: center;
+  font-weight: 500;
+}
+
+#insta-posts {
+  width: 100%;
+  /* background-color: rgb(183, 69, 69); */
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+#insta-posts #each-post {
+  width: 60%;
+  /* height: 100vh; */
+  background-color: rgb(0, 0, 0);
+  display: inline-block;
+  margin-bottom: 15px;
+  border-top: 1px solid #ffffff33;
+}
+
+#each-post #nav-details {
+  width: 100%;
+  height: 10vh;
+  /* background-color: #2d784b; */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10px;
+}
+
+#nav-details #userdetail {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+#userdetail #name-detail {
+  width: 3vw;
+  height: 3vw;
+  /* background-color: #515ecf; */
+  border-radius: 50%;
+  overflow: hidden;
+  background-image: url(https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png);
+  background-size: cover;
+  background-position: center;
+}
+
+#name-detail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+#nav-details i {
+  font-size: 2vw;
+  cursor: pointer;
+}
+
+#each-post #post-image {
+  width: 100%;
+  height: 80vh;
+  /* background-color: #fed373; */
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.post-comment{  
+  width: 30vw;
+  height: 30vw;
+  background-color: #262626;
+  border-radius: 20px;
+  overflow: hidden;
+  z-index: 99;
+}
+
+.post-comment #nav-comment{
+  padding: 0 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 3vw;
+  border-bottom: 1px solid #ffffff52;
+}
+
+.post-comment #comment-container{
+  width: 100%;
+  height: 27vw;
+  overflow-y: auto;
+}
+
+#comment-container::-webkit-scrollbar{
+  display: none;
+}
+
+#comment-details{
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  gap: 5px;
+}
+
+#comment-user-dets{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+#comment-user-image{
+  width: 3vw;
+  height: 3vw;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+#comment-user-image img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+#post-image{
+  position: relative;
+}
+
+#post-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+#post-image svg{
+  position: absolute;
+  z-index: 999;
+  top: 3%;
+  right: 3%;
+  border-radius: 50%;
+  padding: 10px;
+  background-color: #ffffff41;
+  cursor: pointer;
+}
+
+#likes{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+
+#icons{
+  display: flex;
+  cursor: pointer;
+}
+
+#likes #icons svg{
+  margin-right: 10px;
+}
+
+#icons svg:hover{
+  opacity: .7;
+}
+
+#comment-form{
+  display: flex;
+  align-items: center;
+}
+
+#comment-form #write-comment{
+  width: 100%;
+  border: none;
+  outline: none;
+  padding: 10px 0;
+  font-size: 14px;
+  background-color: transparent;
+}
+
+#comment-form #submit-comment{
+  background-color: transparent;
+  color: #0078C6;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  display: none;
+  border: none;
+}
+
+#submit-comment:hover{
+  color: #5ea3d2;
+}
+
+#last{
+  width: 20vw;
+  height: 100vh;
+  border-left: 1px solid #ffffff59;
+  background-color: #000;
+  padding: 15px 5px;
+  overflow-y: auto;
+}
+
+#loggedinuser{
+  display: flex;
+  /* flex-direction: column; */
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+#loggedinuser a{
+  text-decoration: none;
+  color: #0078C6;
+  border-radius: 10px;
+  font-size: 14px;
+}
+
+#loggedinuser-dets{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+#loggedinuser-image{
+  width: 3vw;
+  height: 3vw;
+  border-radius: 50%;
+  overflow: hidden;
+  background-image: url(https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png);
+  background-size: cover;
+  background-position: center;
+}
+
+#loggedinuser-image img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+#overlay{
+  background-color: #000000b0;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+#likeoverlay{
+  background-color: #0000007e;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+#post-likes{
+  width: 30vw;
+  height: 30vw;
+  background-color: #262626;
+  border-radius: 20px;
+  overflow: hidden;
+  z-index: 99;
+}
+
+#nav-like{
+  padding: 0 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 3vw;
+  border-bottom: 1px solid #ffffff52;
+}
+
+#like-container{
+  width: 100%;
+  height: 27vw;
+  overflow-y: auto;
+}
+
+#like-container::-webkit-scrollbar{
+  display: none;
+}
+
+#like-details{
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  gap: 5px;
+}
+
+#like-user-image{
+  width: 3vw;
+  height: 3vw;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: red;
+}
+
+#like-user-image img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+#caught{
+  height: 15vw;
+  width: 40vw;
+  background-image: url(/images/uploads/br830b436ke41-removebg-preview.png);
+  background-size: cover;
+  background-position: center;
+  margin-top: 20px;
+}

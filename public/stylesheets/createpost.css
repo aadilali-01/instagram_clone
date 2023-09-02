@@ -1,0 +1,299 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: #fff;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+html,body{
+    width: 100%;
+    height: 100%;
+}
+
+#main{
+    position: relative;
+    display: flex;
+}
+
+#left{
+    position: relative;
+    width: 20vw;
+    height: 100vh;
+    background-color: black;
+    border-right: 1px solid #ffffff52;
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+    padding-left: 25px;
+    padding-right: 25px;
+    
+}
+
+#left>svg{
+    margin-top: 35px;
+    margin-bottom: 10px;
+}
+
+#left #container{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+   
+}
+
+#left a{
+    text-decoration: none;
+    color: #fff;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+#left .icons {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 10px 10px;
+    border-radius: 10px;
+  }
+  
+  #options{
+    position: absolute;
+    bottom: 10%;
+    width: 23vw;
+    /* height: 20vh; */
+    background-color: #262626;
+    border-radius: 20px;
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 15px;
+    overflow: hidden;
+  }
+  
+  #options button{
+    background-color: transparent;
+    width: 100%;
+    outline: none;
+    border: none;
+    padding: 10px 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.2vw;
+    cursor: pointer;
+    border-radius: 20px;
+  }
+  
+  #options button:hover{
+    background-color: #1a1a1a;
+  }
+
+#left .icons:hover{
+    background-color: #1A1A1A;
+}
+
+#left .icons h4{
+    font-weight: 400;
+}
+
+#left .icons #image{
+    width: 2vw;
+    height: 2vw;
+    border-radius: 50%;
+    overflow: hidden;
+    background-image: url(https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png);
+    background-size: cover;
+    background-position: center;
+}
+
+.icons #image img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: cover;
+}
+
+#search #searching{
+    width: 30vw;
+    height: 100vh;
+    background-color: black;
+    border-right: 1px solid #ffffff6e;
+    border-radius: 10px;
+    position: absolute;
+    top: 0;
+    left: -100vw;
+    z-index: 9;
+    padding: 0 20px;
+    /* transition: all ease .5s; */
+  }
+  
+  #searching h2{
+    margin-top: 20px;
+    font-weight: 500;
+  }
+  
+  #searching input{
+    width: 100%;
+    padding: 12px;
+    color: #fff;
+    background-color: #262626;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    margin-top: 30px;
+    font-size: 1.2vw;
+  }
+  
+  #searchResults{
+    /* background-color: red; */
+    padding: 10px;
+  }
+  
+  #searchResults hr{
+    opacity: 0;
+  }
+  
+  #searchResults a{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  
+  #searchResults a #searchphoto{
+    width: 4vw;
+    height: 4vw;
+    border-radius: 50%;
+    overflow: hidden;
+  
+  }
+  
+  #searchphoto img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+  
+  #searchResults a #resultbox{
+    padding: 10px 12px;
+    /* background-color: red; */
+  }
+
+#right{
+    width: 80vw;
+    height: 100vh;
+    background-color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#right #posts{
+    width: 53vw;
+    height: 60vh;
+    background-color: #262626;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+#posts #nav{
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid #ffffff52;
+}
+
+#nav h4{
+    font-weight: 500;
+}
+
+#posts #posting{
+    width: 100%;
+    height: calc(100% - 20px);
+    display: flex;
+}
+
+#posting #post-image{
+    width: 55%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    background-image: url(/images/uploads/file.png);
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    gap: 10px;
+}
+
+#post-image img{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    object-fit: cover;
+}
+
+#post-image video{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    object-fit: cover;
+}
+
+
+#posting #details{
+    width: 45%;
+    height: 100%;
+    background-color: #262626;
+    padding: 20px 15px;
+}
+
+#details #user{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+#user #userphoto{
+    width: 3vw;
+    height: 3vw;
+    border-radius: 50%;
+    overflow: hidden;
+    background-image: url(https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png);
+    background-size: cover;
+    background-position: center;
+}
+
+#user h4{
+    font-weight: 500;
+}
+
+#userphoto img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+#details #caption{
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    resize: none;
+    font-size: 1.2vw;
+}
+
+#details button{
+    background-color: #1877F2;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    padding: 8px 12px;
+    border-radius: 10px;
+}

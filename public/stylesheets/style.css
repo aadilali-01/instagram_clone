@@ -1,0 +1,240 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,body{
+  width: 100%;
+  height: 100%;
+}
+
+
+body {
+    font-family: sans-serif;
+    background-color: #fafafa;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+      Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    box-sizing: border-box;
+  }
+  
+  
+  #main{
+  background-color: black;
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#left{
+  position: relative;
+  height: 90vh;
+  width: 30vw;
+  /* background-color: red; */
+}
+
+#left img{
+  width: 100%;
+  height: 100%;
+}
+
+
+#phone-image{
+  position: absolute;
+  top: 47%;
+  left: 60%;
+  transform: translate(-50%, -50%);
+  width: 55%;
+  height: 86%;
+  background-image: url(/images/uploads/screenshot1-2x.png);
+  background-size: cover;
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+
+}
+
+
+
+body {
+  font-family: sans-serif;
+  background-color: #fafafa;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  box-sizing: border-box;
+  color: #fff;
+}
+
+a {
+  text-decoration: none;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 3rem;
+  font-size: 14px;
+}
+
+.box {
+  max-width: 350px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  /* background-color: #262626; */
+  border: 1px solid #e6e6e6;
+  border-radius: 1px;
+  margin: 0 0 10px;
+  padding: 10px 0;
+  flex-grow: 1;
+  padding: 20px 40px;
+}
+
+.heading {
+  margin: 22px auto 12px;
+  background-image: url("/images/uploads/instalogo.png");
+  background-position: center;
+  background-size: cover;
+  height: 51px;
+  width: 177px;
+  overflow: hidden;
+}
+
+.field {
+  margin: 10px 0;
+  position: relative;
+  font-size: 14px;
+  width: 100%;
+  text-overflow: ellipsis;
+}
+
+input {
+  padding: 9px 0px 7px 8px;
+  font-size: 12px;
+  width: 16rem;
+  height: 2.5rem;
+  outline: none;
+  background: #262626;
+  color: #fff;
+  border-radius: 3px;
+  /* border: 1px solid #efefef; */
+  border: none;
+}
+
+/* label intial position*/
+
+label {
+  position: absolute;
+  pointer-events: none;
+  left: 10px;
+  padding-bottom: 15px;
+  transform: translateY(10px);
+  line-height: 6px;
+  transition: all ease-out 0.1s;
+  font-size: 14px;
+  color: #999;
+  padding-top: 6px;
+}
+
+/* hiding placeholder in all browsers */
+
+input::placeholder {
+  visibility: hidden;
+}
+
+/* hiding  placeholder in mozilla */
+.login-form ::-moz-placeholder {
+  color: transparent;
+}
+
+/* label final position */
+input:not(:placeholder-shown) + label {
+  transform: translateY(0);
+  font-size: 11px;
+}
+
+/* input padding increases if placeholder is not shown */
+input:not(:placeholder-shown) {
+  padding-top: 14px;
+  padding-bottom: 2px;
+}
+
+.login-button {
+  text-align: center;
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid transparent;
+  background-color: #4DB5F9;
+  color: #fff;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.separator {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #999;
+  margin-top: 6px;
+}
+
+.separator .line {
+  height: 1px;
+  width: 40%;
+  background-color: #dbdbdb;
+}
+
+.other {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.fb-login-btn {
+  margin: 1rem;
+  border: 0;
+  cursor: pointer;
+  font-size: 14px;
+  color: #385185;
+  font-weight: 600;
+  background: transparent;
+}
+
+.ri-facebook-box-fill {
+  color: #385185;
+  font-size: 1rem;
+  padding-right: 1px;
+}
+
+.forgot-password {
+  font-size: 12px;
+  color: #3897f0;
+}
+
+.signup {
+  color: #3897f0;
+  font-weight: 600;
+}
+
+#download{
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+#download img{
+  height: 40px;
+}
+

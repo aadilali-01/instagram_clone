@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stories - Instagram</title>
+    <link rel="shortcut icon" href="/images/uploads/favicon-32x32.png" type="image/x-icon">
+    <link rel="stylesheet" href="/stylesheets/stories.css">
+    <style>
+      * {
+        font-family: 'Stick No Bills', sans-serif;
+      }
+  
+      body.paused {
+        user-select: none;
+        -webkit-user-select: none;
+        -webkit-touch-callout: none;
+        text-size-adjust: none;
+        -webkit-text-size-adjust: none;
+        touch-action: manipulation;
+      }
+    </style>
+    
+</head>
+<body>
+    <main>
+      <svg onclick="window.location.href = '/instagram'" aria-label="Close" class="x1lliihq x1n2onr6" color="rgb(255, 255, 255)" fill="rgb(255, 255, 255)" height="18" role="img" viewBox="0 0 24 24" width="18"><title>Close</title><polyline fill="none" points="20.643 3.357 12 12 3.353 20.647" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></polyline><line fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" x1="20.649" x2="3.354" y1="20.649" y2="3.354"></line></svg>
+        <section id='slide'>
+          <article id='slide-elements'>
+            <% if(story.image.length === 1){ %>
+              <figure> <img src='/image/<%= story.image[0].file %>' />
+                <figcaption><%= story.image[0].date %></figcaption>
+              </figure>
+            <% }else{ %>
+              <% story.image.forEach(function(elem){ %>
+                <% if(elem.maxtime > Date.now()){ %>
+                  <figure> <img src='/image/<%= elem.file %>' />
+                    <figcaption><%= elem.date %></figcaption>
+                  </figure>
+                <% } %>
+              <% }) %>
+            <% } %>
+            
+            
+            
+          </article>
+          <div id='slide-controls'>
+            <header>
+              <div id='slide-thumb'></div>
+              <div> 
+                <div id="blank"></div>
+                <p class='play-pause pause' id='play-pause'></p>
+              </div>
+            </header> <a className='more' id='more' href='https://youtu.be/JseV6WH3ufk' target='_blank'>more</a>
+          </div>
+        </section>
+      </main>
+    </body>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="/javascripts/stories.js"></script>
+</body>
+</html>

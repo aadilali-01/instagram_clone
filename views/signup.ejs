@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/images/uploads/favicon-32x32.png" type="image/x-icon">
+    <title>Sign up - Instagram</title><link rel="stylesheet" href="/stylesheets/signup.css">
+</head>
+<body>
+    <main>
+        <div class="page">
+            <div class="header">
+              <img height="70px" src="/images/uploads/instalogo.png" alt="">
+              <p>Sign up to see photos and videos from your friends.</p>
+              <a href="/login/federated/facebook"><button><i class="fab fa-facebook-square"></i> Log in with Facebook</button></a>
+              <div>
+                <hr>
+                <p>OR</p>
+                <hr>
+              </div>
+            </div>
+            <div class="container">
+              <form method="post" action="/register">
+                <div id="email-input">
+                  <input id="email" name="email" type="email" placeholder="Email">
+                  <small id="emailexist">Email already exists</small>
+                </div>
+                <input name="name" type="text" placeholder="Full Name">
+                
+                <div id="username-input">
+                  <input id="username" name="username" type="text" placeholder="Username">
+                  <small id="exist">Username already exist</small>
+                </div>
+                
+                <input name="password" type="password" placeholder="Password">
+                <button id="signup-btn">Sign up</button>
+              </form>
+              <form id="finduser" method="post"></form>
+              <form id="findemail" method="post"></form>
+              <ul>
+                <li>By signing up, you agree to our</li>
+                <li><a href="">Terms</a></li>
+                <li><a href="">Data Policy</a></li>
+                <li>and</li>
+                <li><a href="">Cookies Policy</a> .</li>
+             </ul>
+            </div>
+        </div>
+        <div class="option">
+           <p>Have an account? <a href="/">Log in</a></p>
+        </div>
+        <div class="otherapps">
+          <p>Get the app.</p>
+          <a href="https://play.google.com/store/apps/details?id=com.instagram.android"><img src="https://static.cdninstagram.com/rsrc.php/v3/yz/r/c5Rp7Ym-Klz.png" alt=""></a>
+          <a href="ms-windows-store://pdp/?productid=9nblggh5l9xt&referrer=appbadge&source=www.instagram.com&mode=mini&pos=0%2C0%2C1920%2C1008"><img src="https://static.cdninstagram.com/rsrc.php/v3/yu/r/EHY6QnZYdNX.png" alt=""></a>
+        </div>
+        <div class="footer">
+          <ul>
+            <li><a href="">ABOUT</a></li>
+            <li><a href="">HELP</a></li>
+            <li><a href="">PRESS</a></li>
+            <li><a href="">API</a></li>
+            <li><a href="">JOBS</a></li>
+            <li><a href="">PRIVACY</a></li>
+            <li><a href="">TEMS</a></li>
+            <li><a href="">LOCATIONS</a></li>
+            <li><a href="">TOP ACCOUNTS</a></li>
+            <li><a href="">HASHTAGS</a></li>
+            <li><a href="">LANGUAGE</a></li>
+          </ul>
+          <p>© 2020 PICTUREGRAM</p>
+        </div>
+      </main>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+      <script>
+
+
+        //username exists
+        
+      $("#username").on("input", function(){
+        $("#finduser").submit(function(e){
+        e.preventDefault();
+      })
+      let username = $("#username").val();
+      if(username.trim().length > 0){
+        $.ajax({
+        url: "/search",
+        type: "POST",
+        data: {username: username},
+        success: function(data){
+          data.user.forEach(function(elem){
+            if(elem.username === username){
+              document.querySelector("#exist").style.display = "initial"
+              document.querySelector("#username").style.border = "1px solid red" 
+              document.querySelector("#signup-btn").style.opacity = .5
+              document.querySelector("#signup-btn").style.cursor = "not-allowed"
+              document.querySelector("#signup-btn").disabled = true
+            }else{
+              document.querySelector("#exist").style.display = "none"
+              document.querySelector("#username").style.border = "none" 
+              document.querySelector("#signup-btn").style.opacity = 1
+              document.querySelector("#signup-btn").style.cursor = "pointer"
+              document.querySelector("#signup-btn").disabled = false
+            }
+          })
+
+        }
+      })
+
+      }
+      
+    })
+
+    //email exists
+
+    $("#email").on("input", function(){
+      $("#findemail").submit(function(e){
+        e.preventDefault();
+      })
+      let email = $("#email").val();
+      if(email.trim().length > 0){
+        $.ajax({
+        url: "/searchemail",
+        type: "POST",
+        data: {email: email},
+        success: function(data){
+          data.user.forEach(function(elem){
+            if(elem.email === email){
+              document.querySelector("#emailexist").style.display = "initial"
+              document.querySelector("#email").style.border = "1px solid red" 
+              document.querySelector("#signup-btn").style.opacity = .5
+              document.querySelector("#signup-btn").style.cursor = "not-allowed"
+              document.querySelector("#signup-btn").disabled = true
+            }else{
+              document.querySelector("#emailexist").style.display = "none"
+              document.querySelector("#email").style.border = "none" 
+              document.querySelector("#signup-btn").style.opacity = 1
+              document.querySelector("#signup-btn").style.cursor = "pointer"
+              document.querySelector("#signup-btn").disabled = false
+            }
+          })
+
+        }
+      })
+
+      }
+      
+    })
+      </script>
+</body>
+</html>

@@ -1,0 +1,393 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: #fff;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+}
+
+#main {
+  position: relative;
+  display: flex;
+}
+
+#left {
+  position: relative;
+  width: 5vw;
+  height: 100vh;
+  background-color: black;
+  border-right: 1px solid #ffffff52;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 13px;
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
+#left > svg {
+  margin-top: 35px;
+  margin-bottom: 10px;
+}
+
+#left #container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#left a {
+  text-decoration: none;
+  color: #fff;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+#left svg {
+  display: flex;
+  align-items: center;
+  /* gap: 15px; */
+  padding: 10px;
+  border-radius: 10px;
+}
+
+#left svg:hover {
+  background-color: #1a1a1a;
+}
+
+#left .icons h4 {
+  font-weight: 400;
+}
+
+#left #image {
+  width: 2vw;
+  height: 2vw;
+  border-radius: 50%;
+  overflow: hidden;
+  background-image: url(https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png);
+  background-size: cover;
+  background-position: center;
+}
+
+#image img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: cover;
+}
+
+#search #searching {
+  width: 30vw;
+  height: 100vh;
+  background-color: black;
+  border-right: 1px solid #ffffff6e;
+  border-radius: 10px;
+  position: absolute;
+  top: 0;
+  left: -100vw;
+  z-index: 9;
+  padding: 0 20px;
+  /* transition: all ease .5s; */
+}
+
+#searching h2 {
+  margin-top: 20px;
+  font-weight: 500;
+}
+
+#searching input {
+  width: 100%;
+  padding: 12px;
+  color: #fff;
+  background-color: #262626;
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  margin-top: 30px;
+  font-size: 1.2vw;
+}
+
+#searchResults {
+  /* background-color: red; */
+  padding: 10px;
+}
+
+#searchResults hr {
+  opacity: 0;
+}
+
+#searchResults a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+#searchResults a #searchphoto {
+  width: 4vw;
+  height: 4vw;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+#searchphoto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+#searchResults a #resultbox {
+  padding: 10px 12px;
+  /* background-color: red; */
+}
+
+#center{
+    width: 30vw;
+    height: 100vh;
+    border-right: 1px solid #ffffff52;
+}
+
+#center #chat-top{
+    width: 100%;
+    height: 10vh;
+    padding: 12px;
+    border-bottom: 1px solid #ffffff52;
+}
+
+#chat-top h2{
+    font-weight: 600;
+}
+
+#center #chat-list{
+    width: 100%;
+    height: 90vh;
+    background-color: #000;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+#chat-list::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: 10px;
+	background-color: #000;
+}
+
+#chat-list::-webkit-scrollbar
+{
+	width: 5px;
+	background-color: #000;
+}
+
+#chat-list::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #262626;
+}
+
+#chat-user{
+  position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 20px;
+    transition: all ease .3s;
+    cursor: pointer;
+    
+}
+
+#chat-user:hover{
+    background-color: #262626;
+}
+
+#chat-user-image{
+    width: 5vw;
+    height: 5vw;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+#chat-user-image img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+#chat-user .status{
+  position: absolute;
+  left: 18%;
+  bottom: 15%;
+  width: 1.3vw;
+  height: 1.3vw;
+  background-color: #1CD14F;
+  border: 2px solid #000;
+  border-radius: 50%;
+}
+
+#chat-user-name small{
+  opacity: .5;
+  font-weight: 100;
+}
+
+#right{
+  width: 65vw;
+  height: 100vh;
+  background-color: #000;
+}
+
+#right #container{
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+
+#container #user-nav{
+  width: 100%;
+  height: 10%;
+  /* background-color: #1CD14F; */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  border-bottom: 1px solid #ffffff52;
+}
+
+#user-dets{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+#user-dets-image{
+  width: 4vw;
+  height: 4vw;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+#user-dets-image img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  background-image: url(https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png);
+  background-size: cover;
+  background-position: center;
+}
+
+#container #msg-container{
+  width: 100%;
+  height: 80%;
+  padding: 0 15px;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+#msg-container::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: 10px;
+	background-color: #000;
+}
+
+#msg-container::-webkit-scrollbar
+{
+	width: 5px;
+	background-color: #000;
+}
+
+#msg-container::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #262626;
+}
+
+#msg-container .message{
+  width: fit-content;
+  max-width: 20vw;
+  padding: 7px 12px;
+  border-radius: 50px;
+  margin-top: 20px;
+}
+
+#msg-container .right{
+  float: right;
+  clear: both;
+  background: linear-gradient(
+      180deg,
+      rgba(103, 88, 205, 1) 51%,
+      rgba(89, 116, 219, 1) 92%
+  )
+}
+
+#sender{
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+#msg-container .left{
+  float: left;
+  clear: both;
+  background-color: #262626;
+}
+
+#sender-image{
+  width: 2vw;
+  height: 2vw;
+  background-color: red;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-top: 20px;
+}
+
+#sender-image img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+#container #send{
+  width: 100%;
+  height: 10%;
+  /* background-color: red; */
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 15px;
+}
+
+#send textarea{
+  width: 100%;
+  height: 80%;
+  background-color: transparent;
+  resize: none;
+  border-radius: 50px;
+  padding: 13px;
+  font-size: 15px;
+  outline: none;
+}
+
+textarea::-webkit-scrollbar{
+  display: none;
+}
+
+#send button{
+  background-color: transparent;
+  font-size: 15px;
+  color: #0095f6;
+  cursor: pointer;
+}
